@@ -1,1 +1,1 @@
-web: gunicorn KitchenProject.wsgi
+web: python manage.py runserver
