@@ -1,0 +1,65 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Kitchen Project Home Page</title>
+
+        <link rel="stylesheet" type="text/css" href="{% static 'css/stylesheet.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    </head>
+
+    <body>
+        {% include 'header.html' %} 
+
+        <div class="skrollr-background" 
+            data-0="opacity:1;background-image:!url({% static 'img/1.jpg' %});" 
+            data-250="opacity:0.2;background-image:!url({% static 'img/2.jpg' %});" 
+            data-500="opacity:1"
+            data-750="opacity:0.2;background-image:!url({% static 'img/3.jpg' %});" 
+            data-1000="opacity:1">
+            <div class="skrollr-container white-text" 
+                data-start="opacity:1" 
+                data-250="opacity:0"
+                style="margin-top:250px;">
+                <h1 class="text-center"><strong>Welcome to Kitchen Project!</strong></h1>
+            </div>
+            <div class="skrollr-container hor-center white-text" 
+                data-250="opacity:0" 
+                data-500="opacity:1"
+                data-750="opacity:0"
+                style="margin-top:750px;">
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <p class="lead text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus facilisis velit lacinia molestie. In mattis at nisi in gravida. Phasellus dictum ante a risus egestas feugiat. Praesent cursus risus ut purus pellentesque, quis molestie sem consequat. Cras suscipit tortor id risus molestie rhoncus. Maecenas interdum ex non ullamcorper vulputate. Donec accumsan odio eu tellus vehicula faucibus. Nulla ultrices pretium aliquam.</p>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+            </div>
+            <div class="skrollr-container hor-center" 
+                data-750="opacity:0" 
+                data-end="opacity:1"
+                style="margin-top:1250px;">
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <p class="lead text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus facilisis velit lacinia molestie. In mattis at nisi in gravida. Phasellus dictum ante a risus egestas feugiat. Praesent cursus risus ut purus pellentesque, quis molestie sem consequat. Cras suscipit tortor id risus molestie rhoncus. Maecenas interdum ex non ullamcorper vulputate. Donec accumsan odio eu tellus vehicula faucibus. Nulla ultrices pretium aliquam.</p>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- JAVASCRIPTS -->
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+        <!-- Run Skrollr in this page -->
+        <script src="{% static 'js/skrollr.js' %}"></script>
+        <script type="text/javascript">
+            var s = skrollr.init();
+        </script>
+    </body>
+</html>
