@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '_4se!gt_19wl-5d41^519$&o0hs*z&+9mw@gr9k*u6ygy2-e6c'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -77,18 +77,18 @@ WSGI_APPLICATION = 'KitchenProject.wsgi.application'
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
 DATABASES = {
-    #'default': {
-    #    'ENGINE': 'django.db.backends.sqlite3',
-    #    'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    #}
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd5059ghhccj86',
-        'USER': 'sojucpphtxjnnx',
-        'PASSWORD': 'tTXxEq8VviXBE6Zfmxc-GGFQKk',
-        'HOST': 'ec2-54-83-44-117.compute-1.amazonaws.com',
-        'PORT': '5432',
+       'ENGINE': 'django.db.backends.sqlite3',
+       'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'd5059ghhccj86',
+    #     'USER': 'sojucpphtxjnnx',
+    #     'PASSWORD': 'tTXxEq8VviXBE6Zfmxc-GGFQKk',
+    #     'HOST': 'ec2-54-83-44-117.compute-1.amazonaws.com',
+    #     'PORT': '5432',
+    # }
 }
 
 
@@ -133,3 +133,17 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "KitchenProject/static"),    ### add custom staticfiles directory in the project folder
 ]
+
+import dj_database_url
+DATABASES['default'] = dj_database_url.config()
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+ALLOWED_HOSTS = ['*']
+
+DEBUG = False
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
